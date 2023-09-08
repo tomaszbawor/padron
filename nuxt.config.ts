@@ -4,5 +4,16 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/eslint-module',
     '@nuxtjs/tailwindcss',
+    '@nuxtjs/google-fonts',
   ],
+
+  googleFonts: {
+    families: {
+      'Roboto': true,
+      'Inter': true,
+      'Josefin+Sans': true,
+      'Lato': true,
+
+    },
+  },
 })
