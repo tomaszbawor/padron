@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.0](https://github.com/tomaszbawor/padron/compare/v0.0.2...v0.1.0) (2023-09-09)
+
+
+### Features
+
+* creating basic character creation screen with skill point distribution ([9bc78b2](https://github.com/tomaszbawor/padron/commit/9bc78b2b773f0ab243176d70551395bccf2f8542))
+
 ### [0.0.2](https://github.com/tomaszbawor/padron/compare/v0.0.1...v0.0.2) (2023-09-09)
 
 ### 0.0.1 (2023-09-09)
