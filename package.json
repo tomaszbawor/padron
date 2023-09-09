@@ -1,6 +1,11 @@
 {
   "name": "padron",
   "private": true,
+  "engines": {
+    "node": "18.17.1",
+    "npm": "please-use-yarn",
+    "yarn": ">= 1.22.19"
+  },
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
