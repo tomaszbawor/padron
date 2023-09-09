@@ -51,7 +51,7 @@ function resetStats() {
               <v-btn icon class="" @click="increaseStat(stat as BasicStats)">
                 <Icon name="material-symbols:add" />
               </v-btn>
-              <p class="my-auto text-center">
+              <p class="my-auto text-center text-xl font-bold">
                 {{ val }}
               </p>
               <v-btn icon @click="decreaseStat(stat as BasicStats)">
