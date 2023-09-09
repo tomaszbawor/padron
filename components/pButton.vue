@@ -1,9 +1,16 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+export interface ButtonProps {
+  label: string
+  onClick: () => void
+}
+
+defineProps<ButtonProps>()
+</script>
 
 <template>
-  <div>
+  <button>
     Component: pButton
-  </div>
+  </button>
 </template>
 
 <style scoped></style>

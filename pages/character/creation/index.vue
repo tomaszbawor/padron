@@ -48,25 +48,25 @@ function resetStats() {
               </b>
             </div>
             <div class="w-32 grid grid-cols-3 ">
-              <v-btn icon class="" @click="increaseStat(stat as BasicStats)">
+              <button class="" @click="increaseStat(stat as BasicStats)">
                 <Icon name="material-symbols:add" />
-              </v-btn>
+              </button>
               <p class="my-auto text-center text-xl font-bold">
                 {{ val }}
               </p>
-              <v-btn icon @click="decreaseStat(stat as BasicStats)">
+              <button @click="decreaseStat(stat as BasicStats)">
                 <Icon name="material-symbols:remove" />
-              </v-btn>
+              </button>
             </div>
           </template>
         </div>
         <div />
         <p>Points left: {{ pointsToRedistribute }}</p>
 
-        <v-btn @click="resetStats">
+        <button @click="resetStats">
           Reset
-        </v-btn>
-        <v-btn>Confirm</v-btn>
+        </button>
+        <button>Confirm</button>
       </div>
     </div>
   </div>
