@@ -24,6 +24,9 @@ This project is following [Conventional Commits](), so I to commit your changes 
 npm run cz
 ```
 
+For brancching model we are using git flow, please follow guide while contributing. 
+You can read more [here](https://danielkummer.github.io/git-flow-cheatsheet/)
+
 ## Development Server
 
 Start the development server on `http://localhost:3000`:
