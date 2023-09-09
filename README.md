@@ -17,6 +17,13 @@ Make sure to install the dependencies:
 yarn install
 ```
 
+## Contribution
+This project is following [Conventional Commits](), so I to commit your changes please use: 
+
+```bash
+npm run cz
+```
+
 ## Development Server
 
 Start the development server on `http://localhost:3000`:
