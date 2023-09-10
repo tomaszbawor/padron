@@ -15,6 +15,7 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     'nuxt-icon',
     '@pinia/nuxt',
+    '@formkit/auto-animate/nuxt',
   ],
 
   // Temporary solution for problem with pinia
@@ -28,7 +29,7 @@ export default defineNuxtConfig({
       // 'Inter': true,
       // 'Josefin+Sans': true,
       Lato: true,
-
+      Staatliches: true,
     },
   },
 

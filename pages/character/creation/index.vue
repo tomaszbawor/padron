@@ -8,6 +8,9 @@ import {
 
 const pointsToRedistribute = ref(20)
 
+function confirm() {
+}
+
 const currentPoints = ref({ ...NewCharStarterPoints })
 
 function decreaseStat(stat: BasicStats) {
@@ -47,7 +50,7 @@ function resetStats() {
                 {{ BasicStatsLabels[stat as BasicStats] }}:
               </b>
             </div>
-            <div class="w-32 grid grid-cols-3 ">
+            <div class="w-32 grid grid-cols-3 v-auto-animate">
               <button class="" @click="increaseStat(stat as BasicStats)">
                 <Icon name="material-symbols:add" />
               </button>
@@ -66,7 +69,9 @@ function resetStats() {
         <button @click="resetStats">
           Reset
         </button>
-        <button>Confirm</button>
+        <button @click="confirm">
+          Confirm
+        </button>
       </div>
     </div>
   </div>

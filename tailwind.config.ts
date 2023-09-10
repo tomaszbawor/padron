@@ -4,7 +4,8 @@ export default <Partial<Config>>{
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Lato'],
+        sans: ['Lato', 'Staatliches'],
+        headers: ['Staatliches'],
       },
       colors: {
         void: { DEFAULT: '#0E0B16', 50: '#B4A8D4', 100: '#A89BCD', 200: '#917FBF', 300: '#7964B2', 400: '#654F9E', 500: '#534183', 600: '#423468', 700: '#31264C', 800: '#1F1931', 900: '#0E0B16', 950: '#020203' },
