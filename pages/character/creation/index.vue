@@ -5,6 +5,8 @@ import {
   BasicStatsLabels, MinimumValueForStat,
   NewCharStarterPoints,
 } from '~/engine/character/BasicStats'
+import Header from '~/components/typography/Header.vue'
+import PadButton from '~/components/ui/PadButton.vue'
 
 const pointsToRedistribute = ref(20)
 
@@ -38,11 +40,13 @@ function resetStats() {
 </script>
 
 <template>
-  <div class="h-full w-full">
-    <h1>Create your character </h1>
-    <div>
-      <div class="w-1/2">
-        <h1>Pick your Stats:</h1>
+  <CardContainer>
+    <div class="h-full w-full">
+      <Header class="text-center">
+        Create your character
+      </Header>
+
+      <div class="w-2/3 mt-4 bg-gray-900 p-4 mx-auto border-gray-600 border-2 rounded-xl">
         <div class="grid grid-cols-[1fr_2fr] gap-y-2">
           <template v-for="[stat, val] in Object.entries(currentPoints)" :key="stat">
             <div class="flex flex-row-reverse">
@@ -51,9 +55,13 @@ function resetStats() {
               </b>
             </div>
             <div class="w-32 grid grid-cols-3 v-auto-animate">
-              <button class="" @click="increaseStat(stat as BasicStats)">
+              <PadButton on-click="increaseStat(stat as BasicStats)">
                 <Icon name="material-symbols:add" />
-              </button>
+              </PadButton>
+
+              <!--              <button class="" @click="increaseStat(stat as BasicStats)"> -->
+              <!--                <Icon name="material-symbols:add" /> -->
+              <!--              </button> -->
               <p class="my-auto text-center text-xl font-bold">
                 {{ val }}
               </p>
@@ -74,7 +82,7 @@ function resetStats() {
         </button>
       </div>
     </div>
-  </div>
+  </CardContainer>
 </template>
 
 <style scoped></style>

@@ -7,6 +7,6 @@
 }
 
 body {
-    @apply bg-void-950;
-    @apply text-stark-500;
+    @apply bg-gray-900;
+    @apply text-gray-300;
 }

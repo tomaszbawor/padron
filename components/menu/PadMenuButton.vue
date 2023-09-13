@@ -10,7 +10,7 @@ function click() {
 
 <template>
   <div class="text-center" @click="click">
-    <button class="border-void-300 w-2/3  bg-void-700 hover:bg-void-400 border-2 rounded-full my-4 shadow-void-500 hover:shadow-void-600 shadow-lg p-3">
+    <button class="border-gray-600 w-2/3 font-headers text-lg bg-gray-400 hover:bg-gray-300 border-2 rounded-full my-4 shadow-gray-500 hover:text-gray-700 hover:shadow-gray-500 shadow-lg p-3">
       <slot />
     </button>
   </div>
