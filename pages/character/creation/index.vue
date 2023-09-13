@@ -55,19 +55,16 @@ function resetStats() {
               </b>
             </div>
             <div class="w-32 grid grid-cols-3 v-auto-animate">
-              <PadButton on-click="increaseStat(stat as BasicStats)">
+              <PadButton variant="primary" is-circle @on-click="increaseStat(stat as BasicStats)">
                 <Icon name="material-symbols:add" />
               </PadButton>
-
-              <!--              <button class="" @click="increaseStat(stat as BasicStats)"> -->
-              <!--                <Icon name="material-symbols:add" /> -->
-              <!--              </button> -->
               <p class="my-auto text-center text-xl font-bold">
                 {{ val }}
               </p>
-              <button @click="decreaseStat(stat as BasicStats)">
+
+              <PadButton variant="primary" is-circle @on-click="decreaseStat(stat as BasicStats)">
                 <Icon name="material-symbols:remove" />
-              </button>
+              </PadButton>
             </div>
           </template>
         </div>
