@@ -9,10 +9,16 @@ import Header from '~/components/typography/Header.vue'
 import IconButton from '~/components/ui/IconButton.vue'
 import { useHeroStore } from '~/store/heroStore'
 import PadButton from '~/components/ui/PadButton.vue'
+import PadInput from '~/components/ui/PadInput.vue'
 
 const heroStore = useHeroStore()
 
 const pointsToRedistribute = ref(20)
+const name = ref('HeroName')
+
+function nameChangeHandler(str: string) {
+  name.value = str
+}
 
 const isConfirmEnabled = computed(() => {
   return pointsToRedistribute.value === 0
@@ -24,7 +30,7 @@ function confirm() {
   heroStore.createPlayer(
     {
 
-      name: 'Test',
+      name: name.value,
       stats: currentPoints.value,
 
     },
@@ -67,6 +73,10 @@ function resetStats() {
 
       <div class="w-2/3 mt-4 bg-gray-900 p-4 mx-auto border-gray-600 border-2 rounded-xl">
         <div class="grid grid-cols-[1fr_2fr] gap-y-2">
+          <label class="text-right my-auto text-lg font-bold" for="hero-name">
+            Name:
+          </label>
+          <PadInput classes="ml-2 text-center" :value="name" @update:model-value="nameChangeHandler" />
           <template v-for="[stat, val] in Object.entries(currentPoints)" :key="stat">
             <div class="flex flex-row-reverse">
               <b class="my-auto pr-2">
