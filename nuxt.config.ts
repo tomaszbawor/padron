@@ -4,28 +4,26 @@ export default defineNuxtConfig({
   devServer: {
     port: 3333,
   },
+
+  css: [
+    '~/public/assets/css/main.css',
+  ],
   modules: [
     '@nuxtjs/eslint-module',
     '@nuxtjs/tailwindcss',
     '@nuxtjs/google-fonts',
     '@vueuse/nuxt',
     'nuxt-icon',
-    '@invictus.codes/nuxt-vuetify',
+    '@pinia/nuxt',
+    '@pinia-plugin-persistedstate/nuxt',
+    '@formkit/auto-animate/nuxt',
   ],
 
+  // Temporary solution for problem with pinia
   googleFonts: {
     families: {
-      'Roboto': true,
-      'Inter': true,
-      'Josefin+Sans': true,
-      'Lato': true,
-
-    },
-  },
-
-  vuetify: {
-    moduleOptions: {
-      treeshaking: true,
+      Lato: true,
+      Staatliches: true,
     },
   },
 

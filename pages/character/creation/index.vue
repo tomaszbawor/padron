@@ -1,14 +1,38 @@
 <script lang="ts" setup>
-import type { BasicStats } from '~/engine/character/BasicStats'
+import type { BasicStats } from '~/engine/hero/BasicStats'
 import {
   BaseStatIncrementForSKillPoint,
   BasicStatsLabels, MinimumValueForStat,
   NewCharStarterPoints,
-} from '~/engine/character/BasicStats'
+} from '~/engine/hero/BasicStats'
+import Header from '~/components/typography/Header.vue'
+import IconButton from '~/components/ui/IconButton.vue'
+import { useHeroStore } from '~/stores/heroStore'
+import PadButton from '~/components/ui/PadButton.vue'
+
+const heroStore = useHeroStore()
 
 const pointsToRedistribute = ref(20)
 
+const isConfirmEnabled = computed(() => {
+  return pointsToRedistribute.value === 0
+})
+
 const currentPoints = ref({ ...NewCharStarterPoints })
+
+function confirm() {
+  heroStore.createPlayer(
+    {
+      hero: {
+        name: 'Test',
+        stats: currentPoints.value,
+      },
+    },
+  );
+  (async () => {
+    await navigateTo('/game')
+  })()
+}
 
 function decreaseStat(stat: BasicStats) {
   if (currentPoints.value[stat] === MinimumValueForStat[stat])
@@ -35,11 +59,13 @@ function resetStats() {
 </script>
 
 <template>
-  <div class="h-full w-full">
-    <h1>Create your character </h1>
-    <div>
-      <div class="w-1/2">
-        <h1>Pick your Stats:</h1>
+  <CardContainer>
+    <div class="h-full w-full">
+      <Header class="text-center">
+        Create your character
+      </Header>
+
+      <div class="w-2/3 mt-4 bg-gray-900 p-4 mx-auto border-gray-600 border-2 rounded-xl">
         <div class="grid grid-cols-[1fr_2fr] gap-y-2">
           <template v-for="[stat, val] in Object.entries(currentPoints)" :key="stat">
             <div class="flex flex-row-reverse">
@@ -47,29 +73,34 @@ function resetStats() {
                 {{ BasicStatsLabels[stat as BasicStats] }}:
               </b>
             </div>
-            <div class="w-32 grid grid-cols-3 ">
-              <v-btn icon class="" @click="increaseStat(stat as BasicStats)">
+            <div class="w-32 grid grid-cols-3 v-auto-animate">
+              <IconButton variant="primary" is-circle @on-click="increaseStat(stat as BasicStats)">
                 <Icon name="material-symbols:add" />
-              </v-btn>
+              </IconButton>
               <p class="my-auto text-center text-xl font-bold">
                 {{ val }}
               </p>
-              <v-btn icon @click="decreaseStat(stat as BasicStats)">
+              <IconButton variant="primary" is-circle @on-click="decreaseStat(stat as BasicStats)">
                 <Icon name="material-symbols:remove" />
-              </v-btn>
+              </IconButton>
             </div>
           </template>
         </div>
         <div />
         <p>Points left: {{ pointsToRedistribute }}</p>
 
-        <v-btn @click="resetStats">
-          Reset
-        </v-btn>
-        <v-btn>Confirm</v-btn>
+        <div class="my-2">
+          <PadButton classes="mr-2" variant="primary" @on-click="resetStats">
+            Reset
+          </PadButton>
+
+          <PadButton variant="primary" :disabled="!isConfirmEnabled" @on-click="confirm">
+            Confirm
+          </PadButton>
+        </div>
       </div>
     </div>
-  </div>
+  </CardContainer>
 </template>
 
 <style scoped></style>
