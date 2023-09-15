@@ -74,7 +74,10 @@ function resetStats() {
           <label class="text-right my-auto text-lg font-bold" for="hero-name">
             Name:
           </label>
-          <PadInput classes="mx-2 text-center" :value="name" placeholder="Hero Name" @update:model-value="nameChangeHandler" />
+          <PadInput
+            classes="mx-2 text-center" :value="name" placeholder="Hero Name"
+            @update:model-value="nameChangeHandler"
+          />
           <template v-for="[stat, val] in Object.entries(currentPoints)" :key="stat">
             <div class="flex flex-row-reverse">
               <b class="my-auto pr-2">
@@ -82,13 +85,13 @@ function resetStats() {
               </b>
             </div>
             <div class="w-32 grid grid-cols-3 v-auto-animate">
-              <IconButton variant="primary" is-circle @on-click="increaseStat(stat as BasicStats)">
+              <IconButton @on-click="increaseStat(stat as BasicStats)">
                 <Icon name="material-symbols:add" />
               </IconButton>
               <p class="my-auto text-center text-xl font-bold">
                 {{ val }}
               </p>
-              <IconButton variant="primary" is-circle @on-click="decreaseStat(stat as BasicStats)">
+              <IconButton @on-click="decreaseStat(stat as BasicStats)">
                 <Icon name="material-symbols:remove" />
               </IconButton>
             </div>
