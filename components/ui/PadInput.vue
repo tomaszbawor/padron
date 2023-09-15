@@ -1,18 +1,12 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-
 const props = defineProps<{
   disabled?: boolean
   classes?: string
   value?: string
+  placeholder?: string
 }>()
 
 const emits = defineEmits(['update:modelValue'])
-const inputClass = computed(() => {
-  const baseClasses = 'bg-gray-500 rounded-2xl text-white px-4 py-2'
-  const disabledClass = props.disabled ? 'opacity-50 cursor-not-allowed' : ''
-  return `${baseClasses} ${disabledClass} ${props.classes}`
-})
 function handleInput(event: Event) {
   const target = event.target as HTMLInputElement
   emits('update:modelValue', target.value)
@@ -20,12 +14,9 @@ function handleInput(event: Event) {
 </script>
 
 <template>
-  <input
-    :class="inputClass"
-    :disabled="props.disabled"
-    :value="props.value"
-    @input="handleInput"
-  >
+  <div>
+    <input id="first_name" type="text" :value="props.value" :class="`bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ${classes}`" :placeholder="props.placeholder" :disabled="props.disabled" @input="handleInput">
+  </div>
 </template>
 
 <style scoped>

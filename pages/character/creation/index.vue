@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { BasicStats } from '~/engine/hero/BasicStats'
 import {
-  BaseStatIncrementForSKillPoint,
+  BaseStatIncrementForSkillPoint,
   BasicStatsLabels, MinimumValueForStat,
   NewCharStarterPoints,
 } from '~/engine/hero/BasicStats'
@@ -29,10 +29,8 @@ const currentPoints = ref({ ...NewCharStarterPoints })
 function confirm() {
   heroStore.createPlayer(
     {
-
       name: name.value,
       stats: currentPoints.value,
-
     },
   );
   (async () => {
@@ -44,7 +42,7 @@ function decreaseStat(stat: BasicStats) {
   if (currentPoints.value[stat] === MinimumValueForStat[stat])
     return
 
-  const increment = BaseStatIncrementForSKillPoint[stat]
+  const increment = BaseStatIncrementForSkillPoint[stat]
   currentPoints.value[stat] -= increment
   pointsToRedistribute.value++
 }
@@ -52,7 +50,7 @@ function decreaseStat(stat: BasicStats) {
 function increaseStat(stat: BasicStats) {
   if (pointsToRedistribute.value <= 0)
     return
-  const increment = BaseStatIncrementForSKillPoint[stat]
+  const increment = BaseStatIncrementForSkillPoint[stat]
 
   currentPoints.value[stat] += increment
   pointsToRedistribute.value--
@@ -76,7 +74,7 @@ function resetStats() {
           <label class="text-right my-auto text-lg font-bold" for="hero-name">
             Name:
           </label>
-          <PadInput classes="ml-2 text-center" :value="name" @update:model-value="nameChangeHandler" />
+          <PadInput classes="mx-2 text-center" :value="name" placeholder="Hero Name" @update:model-value="nameChangeHandler" />
           <template v-for="[stat, val] in Object.entries(currentPoints)" :key="stat">
             <div class="flex flex-row-reverse">
               <b class="my-auto pr-2">

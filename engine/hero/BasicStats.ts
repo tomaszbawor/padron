@@ -20,7 +20,7 @@ export const MinimumValueForStat: Record<BasicStats, number> = {
   AGILITY: 1, DEFENCE: 1, HEALTH: 10, MAGIC_RESISTANCE: 1, MANA: 10, STRENGTH: 1,
 }
 
-export const BaseStatIncrementForSKillPoint: Record<BasicStats, number> = {
+export const BaseStatIncrementForSkillPoint: Record<BasicStats, number> = {
   AGILITY: 1, DEFENCE: 1, HEALTH: 5, MAGIC_RESISTANCE: 1, MANA: 5, STRENGTH: 1,
 }
 
