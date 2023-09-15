@@ -16,6 +16,7 @@ export const useHeroStore = defineStore('user', {
       this.hero = createPlayerAction.hero
     },
   },
+  persist: true,
 })
 
 // commands
