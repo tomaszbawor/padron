@@ -7,7 +7,7 @@ import {
 } from '~/engine/hero/BasicStats'
 import Header from '~/components/typography/Header.vue'
 import IconButton from '~/components/ui/IconButton.vue'
-import { useHeroStore } from '~/stores/heroStore'
+import { useHeroStore } from '~/store/heroStore'
 import PadButton from '~/components/ui/PadButton.vue'
 
 const heroStore = useHeroStore()
@@ -23,10 +23,10 @@ const currentPoints = ref({ ...NewCharStarterPoints })
 function confirm() {
   heroStore.createPlayer(
     {
-      hero: {
-        name: 'Test',
-        stats: currentPoints.value,
-      },
+
+      name: 'Test',
+      stats: currentPoints.value,
+
     },
   );
   (async () => {
