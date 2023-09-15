@@ -1,14 +1,19 @@
 export enum BasicStats {
+  HEALTH = 'HEALTH',
+  MANA = 'MANA',
   STRENGTH = 'STRENGTH',
   AGILITY = 'AGILITY',
   DEFENCE = 'DEFENCE',
   MAGIC_RESISTANCE = 'MAGIC_RESISTANCE',
-  HEALTH = 'HEALTH',
-  MANA = 'MANA',
 }
 
 export const BasicStatsLabels: Record<BasicStats, string> = {
-  AGILITY: 'Agitity', DEFENCE: 'Defence', HEALTH: 'Health', MAGIC_RESISTANCE: 'Magic Resistance', MANA: 'Mana', STRENGTH: 'Strength',
+  AGILITY: 'Agitity',
+  DEFENCE: 'Defence',
+  HEALTH: 'Health',
+  MAGIC_RESISTANCE: 'Magic Resistance',
+  MANA: 'Mana',
+  STRENGTH: 'Strength',
 }
 
 export const MinimumValueForStat: Record<BasicStats, number> = {

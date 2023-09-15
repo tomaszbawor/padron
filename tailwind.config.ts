@@ -4,7 +4,8 @@ export default <Partial<Config>>{
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter'],
+        sans: ['Lato', 'Staatliches'],
+        headers: ['Staatliches'],
       },
     },
   },
