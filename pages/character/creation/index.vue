@@ -1,19 +1,38 @@
 <script lang="ts" setup>
-import type { BasicStats } from '~/engine/character/BasicStats'
+import type { BasicStats } from '~/engine/hero/BasicStats'
 import {
   BaseStatIncrementForSKillPoint,
   BasicStatsLabels, MinimumValueForStat,
   NewCharStarterPoints,
-} from '~/engine/character/BasicStats'
+} from '~/engine/hero/BasicStats'
 import Header from '~/components/typography/Header.vue'
+import IconButton from '~/components/ui/IconButton.vue'
+import { useHeroStore } from '~/stores/heroStore'
 import PadButton from '~/components/ui/PadButton.vue'
+
+const heroStore = useHeroStore()
 
 const pointsToRedistribute = ref(20)
 
-function confirm() {
-}
+const isConfirmEnabled = computed(() => {
+  return pointsToRedistribute.value === 0
+})
 
 const currentPoints = ref({ ...NewCharStarterPoints })
+
+function confirm() {
+  heroStore.createPlayer(
+    {
+      hero: {
+        name: 'Test',
+        stats: currentPoints.value,
+      },
+    },
+  );
+  (async () => {
+    await navigateTo('/game')
+  })()
+}
 
 function decreaseStat(stat: BasicStats) {
   if (currentPoints.value[stat] === MinimumValueForStat[stat])
@@ -55,28 +74,30 @@ function resetStats() {
               </b>
             </div>
             <div class="w-32 grid grid-cols-3 v-auto-animate">
-              <PadButton variant="primary" is-circle @on-click="increaseStat(stat as BasicStats)">
+              <IconButton variant="primary" is-circle @on-click="increaseStat(stat as BasicStats)">
                 <Icon name="material-symbols:add" />
-              </PadButton>
+              </IconButton>
               <p class="my-auto text-center text-xl font-bold">
                 {{ val }}
               </p>
-
-              <PadButton variant="primary" is-circle @on-click="decreaseStat(stat as BasicStats)">
+              <IconButton variant="primary" is-circle @on-click="decreaseStat(stat as BasicStats)">
                 <Icon name="material-symbols:remove" />
-              </PadButton>
+              </IconButton>
             </div>
           </template>
         </div>
         <div />
         <p>Points left: {{ pointsToRedistribute }}</p>
 
-        <button @click="resetStats">
-          Reset
-        </button>
-        <button @click="confirm">
-          Confirm
-        </button>
+        <div class="my-2">
+          <PadButton classes="mr-2" variant="primary" @on-click="resetStats">
+            Reset
+          </PadButton>
+
+          <PadButton variant="primary" :disabled="!isConfirmEnabled" @on-click="confirm">
+            Confirm
+          </PadButton>
+        </div>
       </div>
     </div>
   </CardContainer>

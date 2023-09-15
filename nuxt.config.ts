@@ -19,15 +19,8 @@ export default defineNuxtConfig({
   ],
 
   // Temporary solution for problem with pinia
-  alias: {
-    pinia: '/node_modules/@pinia/nuxt/node_modules/pinia/dist/pinia.mjs',
-  },
-
   googleFonts: {
     families: {
-      // 'Roboto': true,
-      // 'Inter': true,
-      // 'Josefin+Sans': true,
       Lato: true,
       Staatliches: true,
     },
