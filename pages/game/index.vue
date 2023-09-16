@@ -11,17 +11,7 @@ const heroStore = useHeroStore()
 
 <template>
   <NuxtLayout name="game">
-    <nav class="bg-red-800 ">
-      <ul>
-        <li>Statistic</li>
-        <li>Inventory</li>
-        <li>Actions</li>
-      </ul>
-    </nav>
-
-    <pre>
-    {{ heroStore.hero }}
-  </pre>
+    <pre>{{ JSON.stringify(heroStore.hero, null, 2) }}</pre>
   </NuxtLayout>
 </template>
 
