@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@formkit/auto-animate": "^0.8.0",
+    "eslint-plugin-tailwindcss": "^3.13.0",
     "flowbite": "^1.8.1",
     "pinia": "^2.1.6"
   },
