@@ -24,10 +24,10 @@ const expNeededForNextLevel = computed(() => {
     <div class="flow-root">
       <p>Level: {{ hero.level }}</p>
       <p>Experience: {{ hero.experience }} / {{ expNeededForNextLevel }}</p>
-      <p>Health: {{ hero.stats.HEALTH }}</p>
-      <p>Mana: {{ hero.stats.MANA }}</p>
+      <p>Health: {{ hero.health.current }} / {{ hero.health.max }} </p>
+      <p>Mana: {{ hero.mana.current }} / {{ hero.mana.max }}</p>
       <p>Strength: {{ hero.stats.STRENGTH }}</p>
-      <p>Agility: {{ hero.stats.AGILITY }}</p>
+      <p>Speed: {{ hero.stats.SPEED }}</p>
       <p>Intelligence: {{ hero.stats.DEFENCE }}</p>
       <p>Magic Res: {{ hero.stats.MAGIC_RESISTANCE }}</p>
     </div>

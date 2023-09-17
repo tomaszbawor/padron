@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-import type { BasicStats } from '~/engine/hero/BasicStats'
+import type { BasicHeroParameters, BasicHeroStats } from '~/engine/hero/BasicHeroParameters'
 import {
   BaseStatIncrementForSkillPoint,
   BasicStatsLabels, MinimumValueForStat,
   NewCharStarterPoints,
-} from '~/engine/hero/BasicStats'
+} from '~/engine/hero/BasicHeroParameters'
 import Header from '~/components/typography/Header.vue'
 import IconButton from '~/components/ui/IconButton.vue'
 import { useHeroStore } from '~/store/heroStore'
@@ -38,7 +38,7 @@ function confirm() {
   })()
 }
 
-function decreaseStat(stat: BasicStats) {
+function decreaseStat(stat: BasicHeroStats) {
   if (currentPoints.value[stat] === MinimumValueForStat[stat])
     return
 
@@ -47,7 +47,7 @@ function decreaseStat(stat: BasicStats) {
   pointsToRedistribute.value++
 }
 
-function increaseStat(stat: BasicStats) {
+function increaseStat(stat: BasicHeroStats) {
   if (pointsToRedistribute.value <= 0)
     return
   const increment = BaseStatIncrementForSkillPoint[stat]
@@ -81,17 +81,17 @@ function resetStats() {
           <template v-for="[stat, val] in Object.entries(currentPoints)" :key="stat">
             <div class="flex flex-row-reverse">
               <b class="my-auto pr-2">
-                {{ BasicStatsLabels[stat as BasicStats] }}:
+                {{ BasicStatsLabels[stat as BasicHeroParameters] }}:
               </b>
             </div>
             <div class="grid w-32 grid-cols-3">
-              <IconButton @on-click="increaseStat(stat as BasicStats)">
+              <IconButton @on-click="increaseStat(stat as BasicHeroParameters)">
                 <Icon name="material-symbols:add" />
               </IconButton>
               <p class="my-auto text-center text-xl font-bold">
                 {{ val }}
               </p>
-              <IconButton @on-click="decreaseStat(stat as BasicStats)">
+              <IconButton @on-click="decreaseStat(stat as BasicHeroParameters)">
                 <Icon name="material-symbols:remove" />
               </IconButton>
             </div>
