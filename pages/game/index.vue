@@ -1,17 +1,20 @@
 <script lang="ts" setup>
-import { useHeroStore } from '~/stores/heroStore'
+import { useHeroStore } from '~/store/heroStore'
+import { definePageMeta } from '#imports'
+
+const layoutName = 'game'
+
+definePageMeta({
+  layout: false,
+})
 
 const heroStore = useHeroStore()
 </script>
 
 <template>
-  <header class="text-6xl text-center mt-10 font-headers">
-    Padron
-  </header>
-
-  <pre>
-    {{ heroStore.hero }}
-  </pre>
+  <NuxtLayout :name="layoutName">
+    <pre>{{ JSON.stringify(heroStore.hero, null, 2) }}</pre>
+  </NuxtLayout>
 </template>
 
 <style scoped></style>

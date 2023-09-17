@@ -1,18 +1,24 @@
 <script lang="ts" setup>
-import type { BasicStats } from '~/engine/hero/BasicStats'
+import type { BasicHeroParameters, BasicHeroStats } from '~/engine/hero/BasicHeroParameters'
 import {
-  BaseStatIncrementForSKillPoint,
+  BaseStatIncrementForSkillPoint,
   BasicStatsLabels, MinimumValueForStat,
   NewCharStarterPoints,
-} from '~/engine/hero/BasicStats'
+} from '~/engine/hero/BasicHeroParameters'
 import Header from '~/components/typography/Header.vue'
 import IconButton from '~/components/ui/IconButton.vue'
-import { useHeroStore } from '~/stores/heroStore'
+import { useHeroStore } from '~/store/heroStore'
 import PadButton from '~/components/ui/PadButton.vue'
+import PadInput from '~/components/ui/PadInput.vue'
 
 const heroStore = useHeroStore()
 
 const pointsToRedistribute = ref(20)
+const name = ref('HeroName')
+
+function nameChangeHandler(str: string) {
+  name.value = str
+}
 
 const isConfirmEnabled = computed(() => {
   return pointsToRedistribute.value === 0
@@ -23,10 +29,8 @@ const currentPoints = ref({ ...NewCharStarterPoints })
 function confirm() {
   heroStore.createPlayer(
     {
-      hero: {
-        name: 'Test',
-        stats: currentPoints.value,
-      },
+      name: name.value,
+      stats: currentPoints.value,
     },
   );
   (async () => {
@@ -34,19 +38,19 @@ function confirm() {
   })()
 }
 
-function decreaseStat(stat: BasicStats) {
+function decreaseStat(stat: BasicHeroStats) {
   if (currentPoints.value[stat] === MinimumValueForStat[stat])
     return
 
-  const increment = BaseStatIncrementForSKillPoint[stat]
+  const increment = BaseStatIncrementForSkillPoint[stat]
   currentPoints.value[stat] -= increment
   pointsToRedistribute.value++
 }
 
-function increaseStat(stat: BasicStats) {
+function increaseStat(stat: BasicHeroStats) {
   if (pointsToRedistribute.value <= 0)
     return
-  const increment = BaseStatIncrementForSKillPoint[stat]
+  const increment = BaseStatIncrementForSkillPoint[stat]
 
   currentPoints.value[stat] += increment
   pointsToRedistribute.value--
@@ -65,22 +69,29 @@ function resetStats() {
         Create your character
       </Header>
 
-      <div class="w-2/3 mt-4 bg-gray-900 p-4 mx-auto border-gray-600 border-2 rounded-xl">
+      <div class="mx-auto mt-4 w-2/3 rounded-xl border-2 border-gray-600 bg-gray-900 p-4">
         <div class="grid grid-cols-[1fr_2fr] gap-y-2">
+          <label class="my-auto text-right text-lg font-bold" for="hero-name">
+            Name:
+          </label>
+          <PadInput
+            classes="mx-2 text-center" :value="name" placeholder="Hero Name"
+            @update:model-value="nameChangeHandler"
+          />
           <template v-for="[stat, val] in Object.entries(currentPoints)" :key="stat">
             <div class="flex flex-row-reverse">
               <b class="my-auto pr-2">
-                {{ BasicStatsLabels[stat as BasicStats] }}:
+                {{ BasicStatsLabels[stat as BasicHeroParameters] }}:
               </b>
             </div>
-            <div class="w-32 grid grid-cols-3 v-auto-animate">
-              <IconButton variant="primary" is-circle @on-click="increaseStat(stat as BasicStats)">
+            <div class="grid w-32 grid-cols-3">
+              <IconButton @on-click="increaseStat(stat as BasicHeroParameters)">
                 <Icon name="material-symbols:add" />
               </IconButton>
               <p class="my-auto text-center text-xl font-bold">
                 {{ val }}
               </p>
-              <IconButton variant="primary" is-circle @on-click="decreaseStat(stat as BasicStats)">
+              <IconButton @on-click="decreaseStat(stat as BasicHeroParameters)">
                 <Icon name="material-symbols:remove" />
               </IconButton>
             </div>

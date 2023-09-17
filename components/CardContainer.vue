@@ -2,8 +2,8 @@
 </script>
 
 <template>
-  <div class="lg:flex lg:justify-center lg:items-center h-full">
-    <div class="bg-gray-400 border-gray-600 border-2 w-full h-full p-4 rounded mx-auto shadow-lg shadow-gray-800">
+  <div class="h-full lg:flex lg:items-center lg:justify-center">
+    <div class="mx-auto h-full w-full rounded border-2 border-gray-600 bg-gray-400 p-4 shadow-lg shadow-gray-800">
       <slot />
     </div>
   </div>
