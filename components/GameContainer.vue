@@ -1,6 +1,6 @@
 <template>
-  <div class="lg:flex lg:justify-center lg:items-center h-screen">
-    <div class="bg-gray-600 w-[1024px] h-[768px] rounded shadow-lg mx-auto">
+  <div class="h-screen lg:flex lg:items-center lg:justify-center">
+    <div class="mx-auto h-[768px] w-[1024px] rounded bg-gray-600 shadow-lg">
       <slot />
     </div>
   </div>

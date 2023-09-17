@@ -4,10 +4,10 @@ import PadMenu from '~/components/menu/PadMenu.vue'
 </script>
 
 <template>
-  <header class="text-6xl text-center mt-10 font-headers">
+  <header class="mt-10 text-center font-headers text-6xl">
     Padron
   </header>
-  <p class="text-center text-xl pt-1 font-headers">
+  <p class="pt-1 text-center font-headers text-2xl">
     Browser Based RPG
   </p>
 
@@ -15,8 +15,12 @@ import PadMenu from '~/components/menu/PadMenu.vue'
     <PadMenuButton link="/character/creation">
       New Game
     </PadMenuButton>
-    <PadMenuButton>Continue</PadMenuButton>
-    <PadMenuButton>Options</PadMenuButton>
+    <PadMenuButton link="/game">
+      Continue
+    </PadMenuButton>
+    <PadMenuButton link="/options">
+      Options
+    </PadMenuButton>
     <PadMenuButton>About</PadMenuButton>
   </PadMenu>
 </template>

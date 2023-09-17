@@ -2,8 +2,10 @@
 </script>
 
 <template>
-  <aside id="default-sidebar" class="h-[768px] top-0 left-0 z-40 w-64" aria-label="Sidebar">
-    <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+  <aside id="default-sidebar" class="left-0 top-0 z-40 h-[768px] w-64" aria-label="Sidebar">
+    <div class="h-full overflow-y-auto bg-gray-50 px-3 py-4 dark:bg-gray-800">
+      <GameHeroSheet />
+
       <ul class="space-y-2 font-medium">
         <li>
           <GameSideBarLink label="Stats">

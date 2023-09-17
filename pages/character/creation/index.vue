@@ -69,9 +69,9 @@ function resetStats() {
         Create your character
       </Header>
 
-      <div class="w-2/3 mt-4 bg-gray-900 p-4 mx-auto border-gray-600 border-2 rounded-xl">
+      <div class="mx-auto mt-4 w-2/3 rounded-xl border-2 border-gray-600 bg-gray-900 p-4">
         <div class="grid grid-cols-[1fr_2fr] gap-y-2">
-          <label class="text-right my-auto text-lg font-bold" for="hero-name">
+          <label class="my-auto text-right text-lg font-bold" for="hero-name">
             Name:
           </label>
           <PadInput
@@ -84,7 +84,7 @@ function resetStats() {
                 {{ BasicStatsLabels[stat as BasicStats] }}:
               </b>
             </div>
-            <div class="w-32 grid grid-cols-3 v-auto-animate">
+            <div class="grid w-32 grid-cols-3">
               <IconButton @on-click="increaseStat(stat as BasicStats)">
                 <Icon name="material-symbols:add" />
               </IconButton>
