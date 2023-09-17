@@ -11,10 +11,6 @@ function click() {
 const disabled = computed(() => {
   return props.disabled ?? false
 })
-
-const disabledClass = computed(() => {
-  return disabled.value ? 'opacity-50 cursor-not-allowed' : ''
-})
 </script>
 
 <template>
