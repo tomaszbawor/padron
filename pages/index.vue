@@ -1,6 +1,14 @@
 <script lang="ts" setup>
+import type { Hero } from '../engine/hero/Hero'
 import PadMenuButton from '~/components/menu/PadMenuButton.vue'
 import PadMenu from '~/components/menu/PadMenu.vue'
+import { useHeroStore } from '~/store/heroStore'
+
+const heroStore = useHeroStore()
+
+const canContinue = computed(() => {
+  return heroStore.hero !== 'EMPTY'
+})
 </script>
 
 <template>
@@ -15,8 +23,14 @@ import PadMenu from '~/components/menu/PadMenu.vue'
     <PadMenuButton link="/character/creation">
       New Game
     </PadMenuButton>
-    <PadMenuButton link="/game">
-      Continue
+    <PadMenuButton link="/game" :disabled="!canContinue">
+      <p>Continue</p>
+      <p v-if="!canContinue" class="text-xs">
+        No saved game
+      </p>
+      <p v-else class="text-xs">
+        {{ (heroStore.hero as Hero).name }} ({{ (heroStore.hero as Hero).level }} lvl)
+      </p>
     </PadMenuButton>
     <PadMenuButton link="/options">
       Options
