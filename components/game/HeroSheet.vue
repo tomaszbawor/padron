@@ -1,11 +1,16 @@
 <script setup lang="ts">
 import { useHeroStore } from '~/store/heroStore'
 import type { Hero } from '~/engine/hero/Hero'
+import experienceNeededForNextLevel from '~/engine/hero/expForNextLevel'
 
 const heroStore = useHeroStore()
 
 const hero = computed(() => {
   return heroStore.hero as Hero
+})
+
+const expNeededForNextLevel = computed(() => {
+  return experienceNeededForNextLevel(hero.value.level)
 })
 </script>
 
@@ -18,7 +23,7 @@ const hero = computed(() => {
     </div>
     <div class="flow-root">
       <p>Level: {{ hero.level }}</p>
-      <p>Experience: {{ hero.experience }}</p>
+      <p>Experience: {{ hero.experience }} / {{ expNeededForNextLevel }}</p>
       <p>Health: {{ hero.stats.HEALTH }}</p>
       <p>Mana: {{ hero.stats.MANA }}</p>
       <p>Strength: {{ hero.stats.STRENGTH }}</p>
