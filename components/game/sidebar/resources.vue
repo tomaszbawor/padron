@@ -1,11 +1,12 @@
 <script lang="ts" setup>
+import { storeToRefs } from 'pinia'
 import { useResourcesStore } from '~/store/resourcesStore'
 
-const resourcesState = useResourcesStore()
+const { gold } = storeToRefs(useResourcesStore())
 </script>
 
 <template>
   <div class="py-2">
-    GOLD:  {{ resourcesState.gold }}
+    GOLD: {{ gold }}
   </div>
 </template>
