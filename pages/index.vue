@@ -13,7 +13,7 @@ const canContinue = computed(() => {
 
 <template>
   <header class="mt-10 text-center font-headers text-6xl">
-    Padron
+    Phadron
   </header>
   <p class="pt-1 text-center font-headers text-2xl">
     Browser Based RPG
