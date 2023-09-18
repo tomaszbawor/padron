@@ -3,6 +3,7 @@
 
 <template>
   <GameContainer>
+    <GameNavbar />
     <div class="flex flex-row">
       <GameSidebar />
       <div>
