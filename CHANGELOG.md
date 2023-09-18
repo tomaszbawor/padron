@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.3](https://github.com/tomaszbawor/padron/compare/v0.1.2...v0.1.3) (2023-09-18)
+
+
+### Features
+
+* add placeholder for all game tabs ([65b1dde](https://github.com/tomaszbawor/padron/commit/65b1ddeaeaeceb869852e536f83f34aedc2caf9b))
+* add resources ([2ac5cb9](https://github.com/tomaszbawor/padron/commit/2ac5cb9a9946f00f5e2d9e91c0357caa731b9f3e))
+* add top bar with links provided from pinia store ([019a0e9](https://github.com/tomaszbawor/padron/commit/019a0e9f923f7b7160bf4745a98d20dbe8e20eb1))
+
 ### [0.1.2](https://github.com/tomaszbawor/padron/compare/v0.1.1...v0.1.2) (2023-09-17)
 
 
