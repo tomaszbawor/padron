@@ -5,12 +5,14 @@ import { MinimumValueForResourcePool } from '~/engine/hero/BasicHeroParameters'
 
 interface HeroStoreState {
   hero: Hero | 'EMPTY'
+  hasSavedHero: boolean
 }
 
 export const useHeroStore = defineStore('hero', {
   state: (): HeroStoreState => {
     return {
       hero: 'EMPTY',
+      hasSavedHero: false,
     }
   },
   actions: {
@@ -23,6 +25,7 @@ export const useHeroStore = defineStore('hero', {
         experience: 0,
         level: 1,
       }
+      this.hasSavedHero = true
     },
   },
   persist: {
