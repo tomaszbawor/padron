@@ -3,6 +3,10 @@ defineProps<{
   label: string
   badge?: string
 }>()
+
+defineSlots<{
+  icon: void
+}>()
 </script>
 
 <template>

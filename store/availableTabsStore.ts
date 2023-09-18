@@ -26,10 +26,11 @@ export const useAvailableTabs = defineStore('availableTabs', {
         }, {
           label: 'City',
           link: '/game/city',
-        }, {
-          label: 'Quests',
-          link: '/game/quests',
         },
+        // , {
+        //   label: 'Quests',
+        //   link: '/game/quests',
+        // },
       ],
     }
   },
