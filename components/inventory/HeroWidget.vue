@@ -4,8 +4,8 @@ import { ItemType } from '~/engine/inventory/ItemType'
 </script>
 
 <template>
-  <div class="flex flex-col items-center p-4">
-    <div class="grid grid-cols-3 grid-rows-4 gap-4">
+  <div class="flex select-none flex-col items-center p-4">
+    <div class="grid  grid-cols-3 grid-rows-4 gap-4">
       <div />
       <EquipmentSquare :type="ItemType.HELMET" />
       <div />

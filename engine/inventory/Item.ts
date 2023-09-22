@@ -12,5 +12,4 @@ export interface Item {
   type: ItemType
   requirements: Array<StatValue>
   bonuses: Array<StatValue>
-
 }
