@@ -5,6 +5,7 @@ export enum ItemType {
   HELMET = 'helmet',
   GLOVES = 'gloves',
   SHIELD = 'shield',
+  BELT = 'belt',
   RING = 'ring',
   AMULET = 'amulet',
 }

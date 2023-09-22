@@ -31,7 +31,7 @@ useHead({
     <GameNavbar />
     <div class="flex flex-row">
       <GameSidebar />
-      <div>
+      <div class="w-[calc(1024px-theme('spacing.64'))]">
         <slot />
       </div>
     </div>

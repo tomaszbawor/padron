@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { definePageMeta } from '#imports'
-import HeroWidget from '~/components/menu/HeroWidget.vue'
 
 const layoutName = 'game'
 
@@ -11,9 +10,9 @@ definePageMeta({
 
 <template>
   <NuxtLayout :name="layoutName">
-    <div class="grid p-5 ">
-      <HeroWidget />
-      <div>Inventory</div>
+    <div class="grid grid-cols-2 p-5 ">
+      <InventoryHeroWidget />
+      <InventoryContentWidget />
     </div>
   </NuxtLayout>
 </template>
