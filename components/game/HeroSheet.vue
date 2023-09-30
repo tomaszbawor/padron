@@ -40,11 +40,12 @@ const expNeededForNextLevel = computed(() => {
         <ProgressBar variant="BLUE" :value="hero.mana.current" :max="hero.mana.max" />
       </div>
 
-      <div class="grid grid-cols-2 pt-4">
+      <div class="grid grid-cols-2 gap-y-1 pt-4">
         <p>STR: {{ hero.stats.STRENGTH }}</p>
-        <p>SPD: {{ hero.stats.SPEED }}</p>
+        <p>INT: {{ hero.stats.INTELLIGENCE }}</p>
         <p>INT: {{ hero.stats.DEFENCE }}</p>
-        <p>MRES: {{ hero.stats.MAGIC_RESISTANCE }}</p>
+        <p>WIL: {{ hero.stats.WILLPOWER }}</p>
+        <p>SPD: {{ hero.stats.SPEED }}</p>
       </div>
     </div>
   </div>

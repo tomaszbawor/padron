@@ -5,24 +5,33 @@ export enum BasicResourcePools {
 
 export enum BasicHeroStats {
   STRENGTH = 'STRENGTH',
-  SPEED = 'SPEED',
+  INTELLIGENCE = 'INTELLIGENCE',
+
   DEFENCE = 'DEFENCE',
-  MAGIC_RESISTANCE = 'MAGIC_RESISTANCE',
+  WILLPOWER = 'WILLPOWER',
+
+  SPEED = 'SPEED',
+
 }
 
 export type BasicHeroParameters = BasicResourcePools | BasicHeroStats
 
 export const BasicStatsLabels: Record<BasicHeroParameters, string> = {
-  SPEED: 'Speed',
-  DEFENCE: 'Defence',
   HEALTH: 'Health',
-  MAGIC_RESISTANCE: 'Magic Resistance',
   MANA: 'Mana',
   STRENGTH: 'Strength',
+  INTELLIGENCE: 'Intelligence',
+  DEFENCE: 'Defence',
+  WILLPOWER: 'Willpower',
+  SPEED: 'Speed',
 }
 
 export const MinimumValueForStat: Record<BasicHeroStats, number> = {
-  SPEED: 1, DEFENCE: 1, MAGIC_RESISTANCE: 1, STRENGTH: 1,
+  STRENGTH: 1,
+  INTELLIGENCE: 1,
+  DEFENCE: 1,
+  WILLPOWER: 1,
+  SPEED: 1,
 }
 
 export const MinimumValueForResourcePool: Record<BasicResourcePools, number> = {
@@ -30,7 +39,13 @@ export const MinimumValueForResourcePool: Record<BasicResourcePools, number> = {
 }
 
 export const BaseStatIncrementForSkillPoint: Record<BasicHeroParameters, number> = {
-  SPEED: 1, DEFENCE: 1, HEALTH: 5, MAGIC_RESISTANCE: 1, MANA: 5, STRENGTH: 1,
+  HEALTH: 5,
+  MANA: 5,
+  STRENGTH: 1,
+  INTELLIGENCE: 1,
+  DEFENCE: 1,
+  WILLPOWER: 1,
+  SPEED: 1,
 }
 
 export const NewCharStarterPoints = MinimumValueForStat
