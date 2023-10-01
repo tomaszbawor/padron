@@ -23,7 +23,7 @@ const canContinue = computed(() => {
     <PadMenuButton link="/character/creation">
       New Game
     </PadMenuButton>
-    <PadMenuButton link="/game" :disabled="!canContinue">
+    <PadMenuButton link="/game" !disabled="!canContinue">
       <p>Continue</p>
       <p v-if="canContinue" class="text-xs">
         {{ (heroStore.hero as Hero).name }} ({{ (heroStore.hero as Hero).level }} lvl)

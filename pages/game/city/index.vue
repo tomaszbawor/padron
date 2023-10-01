@@ -1,13 +1,19 @@
 <script lang="ts" setup>
 import { definePageMeta } from '#imports'
 import { useResourcesStore } from '~/store/resourcesStore'
+import { useHeroStore } from '~/store/heroStore'
 
 const layoutName = 'game'
 
 const resources = useResourcesStore()
+const heroStore = useHeroStore()
 
 function incGold() {
   resources.increaseGold(1)
+}
+
+function incExp() {
+  heroStore.gainExp(100)
 }
 
 definePageMeta({
@@ -17,11 +23,12 @@ definePageMeta({
 
 <template>
   <NuxtLayout :name="layoutName">
-    City View
-
-    <button @click="incGold">
+    <MenuPadMenuButton @click="incGold">
       Increment Gold
-    </button>
+    </MenuPadMenuButton>
+    <MenuPadMenuButton @click="incExp">
+      Increment Exp
+    </MenuPadMenuButton>
   </NuxtLayout>
 </template>
 

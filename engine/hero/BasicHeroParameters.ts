@@ -6,12 +6,9 @@ export enum BasicResourcePools {
 export enum BasicHeroStats {
   STRENGTH = 'STRENGTH',
   INTELLIGENCE = 'INTELLIGENCE',
-
   DEFENCE = 'DEFENCE',
   WILLPOWER = 'WILLPOWER',
-
   SPEED = 'SPEED',
-
 }
 
 export type BasicHeroParameters = BasicResourcePools | BasicHeroStats

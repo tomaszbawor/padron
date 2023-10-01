@@ -7,6 +7,7 @@ export interface Hero {
   stats: Record<BasicHeroStats, number>
   experience: number
   level: number
+  freeSkillPoints: number
 }
 
 export interface PoolResource {
