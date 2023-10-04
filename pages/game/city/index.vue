@@ -2,6 +2,7 @@
 import { definePageMeta } from '#imports'
 import { useResourcesStore } from '~/store/resourcesStore'
 import { useHeroStore } from '~/store/heroStore'
+import PadButton from '~/components/ui/PadButton.vue'
 
 const layoutName = 'game'
 
@@ -23,12 +24,14 @@ definePageMeta({
 
 <template>
   <NuxtLayout :name="layoutName">
-    <MenuPadMenuButton @click="incGold">
-      Increment Gold
-    </MenuPadMenuButton>
-    <MenuPadMenuButton @click="incExp">
-      Increment Exp
-    </MenuPadMenuButton>
+    <div class="m-4 grid grid-cols-1 gap-4">
+      <PadButton variant="primary" @click="incGold">
+        Increment Gold
+      </PadButton>
+      <PadButton variant="primary" @click="incExp">
+        Increment Exp
+      </PadButton>
+    </div>
   </NuxtLayout>
 </template>
 
