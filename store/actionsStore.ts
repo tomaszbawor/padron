@@ -5,14 +5,16 @@ export type CurrentAction = Action & {
   finishTime: number // timestamp of finishing action
 }
 
-interface CurrentActionStore {
+interface ActionsStore {
   currentAction: CurrentAction | null
+  possibleActions: Array<Action>
 }
 
 export const useCurrentActionStore = defineStore('currentAction', {
-  state: (): CurrentActionStore => {
+  state: (): ActionsStore => {
     return {
       currentAction: null,
+      possibleActions: [],
     }
   },
   actions: {
@@ -24,6 +26,9 @@ export const useCurrentActionStore = defineStore('currentAction', {
     },
     finishAction() {
       // get the rewards and set action to null
+    },
+    enableAction() {
+      // Enable action
     },
   },
   persist: {
