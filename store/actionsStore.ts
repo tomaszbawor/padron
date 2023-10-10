@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import type { Action } from '~/engine/action/Action'
+import { getFutureTimestamp } from '~/engine/utils/time'
 
 export type CurrentAction = Action & {
   finishTime: number // timestamp of finishing action
@@ -18,8 +19,12 @@ export const useCurrentActionStore = defineStore('currentAction', {
     }
   },
   actions: {
-    startAction(a: Action) {
-      // add timestamp of finishing action to store and add to current action
+    startAction(action: Action) {
+      const timestamp = getFutureTimestamp(action.length)
+      this.currentAction = {
+        ...action,
+        finishTime: timestamp,
+      }
     },
     cancelCurrentAction() {
       this.currentAction = null

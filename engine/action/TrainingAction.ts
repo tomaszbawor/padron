@@ -14,7 +14,7 @@ export interface TrainingAction extends Action {
   length: number
 }
 
-export const trainingAction: TrainingAction = {
+export const basicTraining: TrainingAction = {
   label: 'Fake Training',
   type: ActionType.TRAINING,
   gain: {
